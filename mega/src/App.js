@@ -6,7 +6,7 @@ function App() {
   const [name, setName] = useGlobalContext();
 
   setName("Chibundu");
-  const handleClick = () => {};
+  
 
   console.log(name);
 
@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>More to come</h1>
+        <button onClick={()=>{setName("Chibundu")}}
       </header>
     </div>
   );

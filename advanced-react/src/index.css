@@ -254,7 +254,7 @@ ul {
   margin: 0 auto;
   margin-top: -1rem;
 }
-/*
+
 .container {
   width: 95vw;
   margin: 0 auto;
@@ -265,7 +265,7 @@ ul {
   text-align: center;
   margin-top: 5rem;
 }
-*/
+
 .users {
   max-width: 90vw;
   display: grid;

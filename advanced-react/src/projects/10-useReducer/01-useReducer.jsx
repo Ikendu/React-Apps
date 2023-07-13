@@ -25,16 +25,22 @@ const ReducerBasics = () => {
           </div>
         );
       })}
-      <button
-        className="btn"
-        style={{ marginTop: "2rem" }}
-        onClick={() => setPeople([])}
-      >
-        clear items
-      </button>
-      <button className="btn" onClick={restoreAll}>
-        Restore All
-      </button>
+      {
+        //people === data ?
+        people.length > 0 ? (
+          <button
+            className="btn"
+            style={{ marginTop: "2rem" }}
+            onClick={() => setPeople([])}
+          >
+            clear items
+          </button>
+        ) : (
+          <button className="btn" onClick={restoreAll}>
+            Restore All
+          </button>
+        )
+      }
     </div>
   );
 };

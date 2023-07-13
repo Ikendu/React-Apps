@@ -4,6 +4,7 @@ import { useGlobalContext } from "./contex";
 
 function App() {
   const [name, setName] = useGlobalContext();
+  const [change, setChange] = useGlobalContext();
 
   console.log(name);
 
@@ -13,12 +14,12 @@ function App() {
         <h1>More to come</h1>
         <button
           onClick={() => {
-            setName("Chibundu");
+            setChange(!name);
           }}
         >
           Change Name
         </button>
-        <h3>{name}</h3>
+        <h3>{name ? <h2>Chibundu</h2> : <h2>Onyinye</h2>}</h3>
       </header>
     </div>
   );

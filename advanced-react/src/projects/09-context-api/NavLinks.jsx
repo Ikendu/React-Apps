@@ -9,6 +9,9 @@ const NavLinks = () => {
         <li>
           <a href="#">About</a>
         </li>
+        <li>
+          <a href="#">Contact Us</a>
+        </li>
       </ul>
       <UserContainer />
     </div>

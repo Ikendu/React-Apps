@@ -1,20 +1,10 @@
 import { useReducer, useState } from "react";
 import { data, people } from "../../data";
+import { RESTORE, CLEAR_LIST, REMOVE_USER } from "./action-reducer";
+import reducer from "./action-reducer";
 
 const defaultState = {
   people: data,
-};
-const RESTORE = "RESTORE";
-const CLEAR_LIST = "CLEAR_LIST";
-const REMOVE_USER = "REMOVE_USER";
-
-const reducer = (state, action) => {
-  if (action.type === RESTORE) return { ...state, people: data };
-  if (action.type === CLEAR_LIST) return { ...state, people: [] };
-  if (action.type === REMOVE_USER) {
-    let newUser = state.people.filter((person) => person.id !== action.id);
-    return { ...state, people: newUser };
-  }
 };
 
 const ReducerBasics = () => {

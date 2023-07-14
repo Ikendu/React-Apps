@@ -4,9 +4,17 @@ import { data, people } from "../../data";
 const defaultState = {
   people: data,
 };
+const RESTORE = "RESTORE";
+const CLEAR_LIST = "CLEAR_LIST";
+const REMOVE_USER = "REMOVE_USER";
+
 const reducer = (state, action) => {
-  if (action.type === "RESTORE") return { ...state, people: data };
-  else if (action.type === "CLEAR_LIST") return { ...state, people: [] };
+  if (action.type === RESTORE) return { ...state, people: data };
+  if (action.type === CLEAR_LIST) return { ...state, people: [] };
+  if (action.type === REMOVE_USER) {
+    let newUser = state.people.filter((person) => person.id !== action.id);
+    return { ...state, people: newUser };
+  }
 };
 
 const ReducerBasics = () => {
@@ -15,14 +23,17 @@ const ReducerBasics = () => {
 
   const restoreAll = () => {
     //setPeople(data);
-    dispatch({ type: "RESTORE" });
+    dispatch({ type: RESTORE });
   };
   const handleClick = () => {
     //setPeople([]);
-    dispatch({ type: "CLEAR_LIST" });
+    dispatch({ type: CLEAR_LIST });
+  };
+  const removeUser = (id) => {
+    dispatch({ type: REMOVE_USER, id });
   };
 
-  // const removeItem = (id) => {
+  // const removeUser = (id) => {
   //   let newPeople = people.filter((person) => person.id !== id);
   //   setPeople(newPeople);
   // };
@@ -33,7 +44,7 @@ const ReducerBasics = () => {
         return (
           <div key={id} className="item">
             <h4>{name}</h4>
-            <button className="btn" onClick={() => removeItem(id)}>
+            <button className="btn" onClick={() => removeUser(id)}>
               remove
             </button>
           </div>

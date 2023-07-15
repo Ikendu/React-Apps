@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 const url = "https://api.github.com/users";
 
 const FetchData = () => {
@@ -8,18 +8,19 @@ const FetchData = () => {
     setUsers([]);
   };
 
-  useEffect(() => {
-    const fetcher = async () => {
-      try {
-        const response = await fetch(url);
-        const users = await response.json();
-        setUsers(users);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetcher();
+  const fetcher = useCallback(async () => {
+    try {
+      const response = await fetch(url);
+      const users = await response.json();
+      setUsers(users);
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
+
+  useEffect(() => {
+    fetcher();
+  }, [fetcher]);
 
   const getUsers = Array.from(users).map((user) => {
     const { id, avatar_url, html_url, login } = user;

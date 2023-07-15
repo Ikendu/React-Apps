@@ -8,7 +8,9 @@ const LatestReact = () => {
     setText(e.target.value);
 
     // slow down CPU
-
+    {
+      /* keep the transition in the background untill the loading is complete */
+    }
     setTransition(() => {
       const newItems = Array.from({ length: 5000 }, (_, index) => {
         return (
@@ -31,7 +33,7 @@ const LatestReact = () => {
         />
       </form>
       <h4>Items Below</h4>
-
+      {/*display Loading while waiting for data to finish load */}
       {isLoading ? (
         "Loading..."
       ) : (

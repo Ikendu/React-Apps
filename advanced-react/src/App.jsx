@@ -1,5 +1,5 @@
 //import ProjectState from "./projects/02-useEffect/02-fetch-data";
-import ProjectState from "./projects/11-performance/02-lower-state";
+import ProjectState from "./projects/11-performance/03-hooks";
 function App() {
   return (
     <div className="container">

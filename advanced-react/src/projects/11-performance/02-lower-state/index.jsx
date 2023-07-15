@@ -37,7 +37,7 @@ const Form = ({ addPerson }) => {
   );
 };
 
-const LowerStateChallenge = ({ handleSubmit }) => {
+const LowerStateChallenge = () => {
   const [people, setPeople] = useState(data);
 
   const addPerson = (name) => {

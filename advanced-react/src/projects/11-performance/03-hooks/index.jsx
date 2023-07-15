@@ -6,6 +6,9 @@ const LowerState = () => {
   const [people, setPeople] = useState(data);
   const [count, setCount] = useState(0);
 
+  {
+    /* useCallback prevent component unnecessary rerendering  */
+  }
   const removePerson = useCallback(
     (id) => {
       const newPeople = people.filter((person) => person.id !== id);

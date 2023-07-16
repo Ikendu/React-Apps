@@ -6,8 +6,6 @@ function App() {
   const [name, setName] = useGlobalContext();
   const [change, setChange] = useGlobalContext();
 
-  console.log(name);
-
   return (
     <div className="App">
       <header className="App-header">

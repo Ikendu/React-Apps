@@ -22,7 +22,7 @@ const CartContainer = () => {
       </header>
       <div>
         {cartItems.map((item) => (
-          <CartItem key={item.id} />
+          <CartItem key={item.id} {...item} />
         ))}
       </div>
       <footer>

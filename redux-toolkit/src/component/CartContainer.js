@@ -2,6 +2,7 @@ import React from "react";
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, restore } from "../features/cart/cartSlice";
+import { openModel } from "../features/model/modelSlice";
 
 const CartContainer = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const CartContainer = () => {
           </h4>
         </div>
 
-        <button className="btn clear-btn" onClick={() => dispatch(clearCart())}>
+        <button className="btn clear-btn" onClick={() => dispatch(openModel())}>
           clear Cart
         </button>
       </footer>

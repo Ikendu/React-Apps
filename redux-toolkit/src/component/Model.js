@@ -1,15 +1,30 @@
 import React from "react";
+import { clearCart } from "../features/cart/cartSlice";
+import { closeModel, openModel } from "../features/model/modelSlice";
+import { useDispatch } from "react-redux";
 
 const Model = () => {
+  const dispatch = useDispatch();
   return (
     <aside className="modal-container">
       <div className="modal">
         <h4>remove all items from your shopping cart?</h4>
         <div className="btn-container">
-          <button type="button" className="btn confirm-btn">
+          <button
+            type="button"
+            className="btn confirm-btn"
+            onClick={() => {
+              dispatch(clearCart());
+              dispatch(closeModel());
+            }}
+          >
             confirm
           </button>
-          <button type="button" className="btn clear-btn">
+          <button
+            type="button"
+            className="btn clear-btn"
+            onClick={() => dispatch(closeModel())}
+          >
             cancel
           </button>
         </div>

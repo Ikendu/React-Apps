@@ -7,6 +7,8 @@ import Model from "./component/Model";
 
 function App() {
   const { cartItems } = useSelector((state) => state.cart);
+  const { isOpen } = useSelector((state) => state.model);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,7 +16,8 @@ function App() {
   }, [cartItems]);
   return (
     <div>
-      <Model />
+      {isOpen && <Model />}
+
       <Navbar />
       <CartContainer />
     </div>
